@@ -1,4 +1,4 @@
-const { LinkedList, LinkedListNode } = require('./index')
+const { LinkedList, LinkedListNode } = require('./linked-list')
 
 describe("LinkedList", () => {
   it("should insert a value", () => {

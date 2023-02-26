@@ -67,6 +67,24 @@ class DoublyLinkedList {
     return false;
   }
   
+  // a -> b -> c -> d
+  delete(value) {
+    let current = this.head;
+    
+    while(current) {
+      if (current.value === value) {
+        if (!current.previous) {
+          this.head = current.next;
+          return current.value;
+        }
+        current.previous.next = current.next;
+        return current.value;
+      }
+      
+      current = current.next;
+    }
+  }
+  
   toString() {
     let current = this.head;
     let result = '';

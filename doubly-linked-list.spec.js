@@ -55,4 +55,18 @@ describe("DoublyLinkedList", () => {
 
     expect(doublyLinkedList.toString()).toBe('a ä b c');
   });
+  it('should delete a value', () => {
+    const a = new DoublyLinkedListNode("a");
+    const b = new DoublyLinkedListNode("b");
+    a.next = b;
+    b.previous = a;
+    const c = new DoublyLinkedListNode("c");
+    b.next = c;
+    c.previous = b;
+
+    const doublyLinkedList = new DoublyLinkedList(a, c);
+
+    expect(doublyLinkedList.delete('b')).toBe('b');
+    expect(doublyLinkedList.toString()).toBe('a c');
+  });
 });

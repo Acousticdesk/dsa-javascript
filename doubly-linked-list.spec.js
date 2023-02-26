@@ -40,4 +40,19 @@ describe("DoublyLinkedList", () => {
 
     expect(doublyLinkedList.search('d')).toBe(false);
   });
+  it('should insert a value', () => {
+    const a = new DoublyLinkedListNode("a");
+    const b = new DoublyLinkedListNode("b");
+    a.next = b;
+    b.previous = a;
+    const c = new DoublyLinkedListNode("c");
+    b.next = c;
+    c.previous = b;
+
+    const doublyLinkedList = new DoublyLinkedList(a, c);
+    
+    doublyLinkedList.insert('ä', 1);
+
+    expect(doublyLinkedList.toString()).toBe('a ä b c');
+  });
 });

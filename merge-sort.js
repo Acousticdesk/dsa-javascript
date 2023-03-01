@@ -80,8 +80,17 @@ function mergeSort(arr) {
   return merge(leftSorted, rightSorted);
 }
 
+function verifySorted(arr, index) {
+  if (arr.length <= 1) {
+    return true;
+  }
+  index = index || 0;
+  return arr[0] < arr[1] && verifySorted(arr.slice(index + 1));
+}
+
 module.exports = {
   split,
   merge,
   mergeSort,
+  verifySorted,
 };

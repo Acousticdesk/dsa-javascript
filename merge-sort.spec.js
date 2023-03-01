@@ -1,4 +1,4 @@
-const { split, merge, mergeSort } = require("./merge-sort");
+const { split, merge, mergeSort, verifySorted } = require("./merge-sort");
 
 describe("mergeSort", () => {
   describe("split", () => {
@@ -31,6 +31,20 @@ describe("mergeSort", () => {
       const arr = [54, 62, 93, 17, 77, 31, 44, 55, 20];
 
       expect(mergeSort(arr)).toEqual(arr.sort((a, b) => a - b));
+    });
+  });
+
+  describe("given verifySorted", () => {
+    it("should verify if array is sorted", () => {
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+      expect(verifySorted(arr)).toBe(true);
+    });
+
+    it("should verify if array is not sorted", () => {
+      const arr = [1, 2, 3, 5, 4, 6, 7, 8, 9];
+
+      expect(verifySorted(arr)).toBe(false);
     });
   });
 });

@@ -148,50 +148,49 @@ class LinkedList {
 
     return false;
   }
-  
+
   search(value) {
     let current = this.head;
-    
+
     while (current) {
-      
       if (current.value === value) {
         return true;
       }
-      
+
       current = current.next;
     }
-    
+
     return false;
   }
-  
+
   // 'a' -> 'b' -> 'c'
   // delete('b')
-  
+
   delete(value) {
     let current = this.head;
     let previous = null;
-    
+
     while (current) {
       const isHead = !previous;
-      
+
       if (isHead && current.value === value) {
         this.head = current.next;
         return current.value;
       }
-      
+
       if (current.value === value) {
         previous.next = current.next;
         return current.value;
       }
-      
+
       previous = current;
       current = current.next;
     }
   }
-  
+
   traverse() {
     let current = this.head;
-    
+
     while (current) {
       this.traverseLogic(current.value);
       current = current.next;
@@ -216,5 +215,5 @@ class LinkedList {
 
 module.exports = {
   LinkedList,
-  LinkedListNode
-}
+  LinkedListNode,
+};

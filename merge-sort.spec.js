@@ -19,18 +19,18 @@ describe("mergeSort", () => {
 
   describe("merge", () => {
     it("should merge arrays while sorting them", () => {
-      const arr1 = [1, 7, 2];
-      const arr2 = [2, 9, 4];
+      const arr1 = [1, 2, 7];
+      const arr2 = [2, 4, 9];
 
-      expect(merge(arr1, arr2)).toEqual([1, 7, 2, 2, 9, 4]);
+      expect(merge(arr1, arr2)).toEqual([1, 2, 2, 4, 7, 9]);
     });
   });
 
   describe("given mergeSort", () => {
     it("should sort an unsorted array", () => {
-      const arr = [1, 9, 2, 8, 3, 7, 4, 6, 5];
+      const arr = [54, 62, 93, 17, 77, 31, 44, 55, 20];
 
-      expect(mergeSort(arr)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+      expect(mergeSort(arr)).toEqual(arr.sort((a, b) => a - b));
     });
   });
 });

@@ -20,28 +20,55 @@ function merge(arr1, arr2) {
       merged.push(arr2[j]);
       j += 1;
     }
+  }
 
-    while (i < arr1.length) {
-      merged.push(arr1[i]);
-      i += 1;
-    }
+  while (i < arr1.length) {
+    merged.push(arr1[i]);
+    i += 1;
+  }
 
-    while (j < arr2.length) {
-      merged.push(arr2[j]);
-      j += 1;
-    }
+  while (j < arr2.length) {
+    merged.push(arr2[j]);
+    j += 1;
   }
 
   return merged;
 }
 
-// mergeSort([2, 1])
-// |||
-//  V
-// mergeSort([2])
-// mergeSort([1])
+// mergeSort([54, 62, 93, 17, 77, 31, 44, 55, 20])
+// left [54, 62, 93, 17], right [77, 31, 44, 55, 20]
+
+// mergeSort([54, 62, 93, 17])
+// left mergeSort([54, 62]), right mergeSort([93, 17])
+// [54, 62], [17, 93]
+// [17, 54, 62, 93]
+
+// mergeSort([54, 62])
+// left mergeSort([54]) => 54, right mergeSort([62]) => 62
+// merge([54], [62])
+// result [54, 62]
+
+// mergeSort([54]) => 54
+// result [54]
+
+// [77, 31, 44, 55, 20]
+// [77, 31] [44, 55, 20]
+
+// [77] [31]
+// [31, 77]
+
+// [44] [55, 20]
+
+// [55, 20]
+// [55] [20]
+// [20, 55]
+
+// [20, 44, 55]
+
+// [31, 77] [20, 44, 55]
+// [20, 31, 44, 55, 77]
 function mergeSort(arr) {
-  if (arr.length === 0 || arr.length === 1) {
+  if (arr.length <= 1) {
     return arr;
   }
 

@@ -18,11 +18,18 @@ describe("mergeSort", () => {
   });
 
   describe("merge", () => {
-    it("should merge arrays while sorting them", () => {
+    it("should merge arrays", () => {
       const arr1 = [1, 2, 7];
       const arr2 = [2, 4, 9];
 
       expect(merge(arr1, arr2)).toEqual([1, 2, 2, 4, 7, 9]);
+    });
+
+    it("should merge arrays with different lengths", () => {
+      const arr1 = [1, 2, 3];
+      const arr2 = [4, 5, 6, 7, 8, 9, 10];
+
+      expect(merge(arr1, arr2)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     });
   });
 

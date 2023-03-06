@@ -72,4 +72,37 @@ describe("given MinHeap", () => {
       ]);
     });
   });
+
+  describe("given remove", () => {
+    it("should remove an arbitrary element and bubble the last item in the heap to a proper spot", () => {
+      const heap = new MinHeap(1);
+
+      heap.insert(5);
+      heap.insert(2);
+      heap.insert(8);
+      heap.insert(6);
+      heap.insert(2);
+      heap.insert(2);
+      heap.insert(13);
+      heap.insert(12);
+      heap.insert(11);
+      heap.insert(7);
+      heap.insert(10);
+      heap.insert(15);
+      heap.insert(3);
+
+      expect(heap.heap).toEqual([
+        1, 5, 2, 8, 6, 2, 2, 13, 12, 11, 7, 10, 15, 3,
+      ]);
+
+      expect(heap.remove(12)).toBe(12);
+      expect(heap.heap).toEqual([1, 3, 2, 5, 6, 2, 2, 13, 8, 11, 7, 10, 15]);
+    });
+
+    it("should return false if no such element is present in the heap", () => {
+      const heap = new MinHeap(1);
+
+      expect(heap.remove(100)).toBe(false);
+    });
+  });
 });

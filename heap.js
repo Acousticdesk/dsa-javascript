@@ -61,6 +61,38 @@ class MinHeap {
       parent = this.heap[parentIndex];
     }
   }
+
+  remove(value) {
+    let removeIndex;
+
+    for (let i = 0; i < this.heap.length; i += 1) {
+      if (value === this.heap[i]) {
+        removeIndex = i;
+        break;
+      }
+    }
+
+    if (typeof removeIndex !== "number") {
+      return false;
+    }
+
+    this.heap[removeIndex] = this.heap[this.heap.length - 1];
+    this.heap.pop();
+
+    while (true) {
+      const parent = this.heap[parentIndex(removeIndex)];
+
+      if (parent > this.heap[removeIndex]) {
+        const temp = this.heap[removeIndex];
+        this.heap[removeIndex] = this.heap[parentIndex(removeIndex)];
+        this.heap[parentIndex(removeIndex)] = temp;
+
+        removeIndex = parentIndex(removeIndex);
+      } else {
+        return value;
+      }
+    }
+  }
 }
 
 function leftChildIndex(index) {
@@ -69,6 +101,10 @@ function leftChildIndex(index) {
 
 function rightChildIndex(index) {
   return 2 * index + 2;
+}
+
+function parentIndex(index) {
+  return Math.floor((index - 1) / 2);
 }
 
 module.exports = {

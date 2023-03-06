@@ -22,12 +22,12 @@ function binarySearch(sortedArr, value, removedLength = 0) {
   return binarySearch(subArray, value, totalRemovedLength);
 }
 
-function binarySearchIterative(sortedArr) {
+function binarySearchIterative(sortedArr, value) {
   let first = 0;
   let last = sortedArr.length - 1;
 
   while (first <= last) {
-    const midpoint = Math.floor((last - first) / 2);
+    const midpoint = Math.floor((first + last) / 2);
 
     if (sortedArr[midpoint] === value) {
       return midpoint;

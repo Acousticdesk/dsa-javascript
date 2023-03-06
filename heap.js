@@ -14,6 +14,7 @@ class MinHeap {
     return this.heap[0];
   }
 
+  // bubble down
   pop() {
     const removed = this.heap[0];
     this.heap[0] = this.heap[this.heap.length - 1];
@@ -42,6 +43,7 @@ class MinHeap {
     }
   }
 
+  // bubble up
   insert(value) {
     this.heap.push(value);
 

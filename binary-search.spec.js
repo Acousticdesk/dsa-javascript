@@ -13,7 +13,7 @@ describe("given binarySearch", () => {
     expect(binarySearch(arr, 1)).toEqual(0);
   });
 
-  it("should return 0 if no items were found", () => {
+  it("should return -1 if no items were found", () => {
     const arr = [1, 2, 3];
 
     expect(binarySearch(arr, 4)).toEqual(-1);

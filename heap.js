@@ -62,6 +62,8 @@ class MinHeap {
     }
   }
 
+  // can bubble up
+  // can bubble down (is not implemented)
   remove(value) {
     let removeIndex;
 

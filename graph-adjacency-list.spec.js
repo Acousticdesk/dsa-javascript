@@ -3,6 +3,7 @@ const {
   breadthFirst,
   hasPath,
   hasPathBST,
+  constructFromEdges,
 } = require("./graph-adjacency-list");
 
 describe("given graph adjacency list", () => {
@@ -90,6 +91,26 @@ describe("given graph adjacency list", () => {
       };
 
       expect(hasPathBST(graph, "a", "f")).toBe(false);
+    });
+  });
+
+  describe("given constructFromEdges", () => {
+    it("should construct a graph from edges", () => {
+      const edges = [
+        ["a", "b"],
+        ["a", "c"],
+        ["b", "d"],
+        ["c", "e"],
+        ["d", "f"],
+      ];
+      expect(constructFromEdges(edges)).toEqual({
+        a: ["b", "c"],
+        b: ["d"],
+        c: ["e"],
+        d: ["f"],
+        e: [],
+        f: [],
+      });
     });
   });
 });

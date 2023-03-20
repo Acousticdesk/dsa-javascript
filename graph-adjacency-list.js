@@ -55,9 +55,25 @@ function hasPathBST(graph, source, dest) {
   return false;
 }
 
+function constructFromEdges(edges) {
+  const graph = {};
+
+  for (let [src, dest] of edges) {
+    graph[src] = graph[src] || [];
+    graph[dest] = graph[dest] || [];
+  }
+
+  for (let [src, dest] of edges) {
+    graph[src].push(dest);
+  }
+
+  return graph;
+}
+
 module.exports = {
   depthFirst,
   breadthFirst,
   hasPath,
   hasPathBST,
+  constructFromEdges,
 };

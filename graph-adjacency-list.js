@@ -23,7 +23,22 @@ function breadthFirst(graph, source, cb) {
   }
 }
 
+function hasPath(graph, source, dest) {
+  if (source === dest) {
+    return true;
+  }
+
+  for (let neighbor of graph[source]) {
+    if (hasPath(graph, neighbor, dest)) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 module.exports = {
   depthFirst,
   breadthFirst,
+  hasPath,
 };

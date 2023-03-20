@@ -1,6 +1,19 @@
-const { depthFirst, breadthFirst } = require("./graph-adjacency-list");
+const { depthFirst, breadthFirst, hasPath } = require("./graph-adjacency-list");
 
 describe("given graph adjacency list", () => {
+  let graph;
+
+  beforeEach(() => {
+    graph = {
+      a: ["b", "c"],
+      b: ["d"],
+      c: ["e"],
+      d: ["f"],
+      e: [],
+      f: [],
+    };
+  });
+
   describe("given depthFirst", () => {
     it("should traverse the graph", () => {
       const result = [];
@@ -36,6 +49,24 @@ describe("given graph adjacency list", () => {
       breadthFirst(graph, "a", (vertex) => result.push(vertex));
 
       expect(result).toEqual(["a", "b", "c", "d", "e", "f"]);
+    });
+  });
+
+  describe("given hasPath", () => {
+    it("should return true if path exists", () => {
+      expect(hasPath(graph, "a", "c")).toBe(true);
+    });
+    it("should return false if path does not exist", () => {
+      const graph = {
+        a: ["b", "c"],
+        b: ["d"],
+        c: ["e"],
+        d: [],
+        e: [],
+        f: [],
+      };
+
+      expect(hasPath(graph, "a", "f")).toBe(false);
     });
   });
 });

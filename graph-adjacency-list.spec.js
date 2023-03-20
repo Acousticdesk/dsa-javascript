@@ -4,6 +4,7 @@ const {
   hasPath,
   hasPathBST,
   constructFromEdges,
+  connectedComponentsCount,
 } = require("./graph-adjacency-list");
 
 describe("given graph adjacency list", () => {
@@ -111,6 +112,23 @@ describe("given graph adjacency list", () => {
         e: [],
         f: [],
       });
+    });
+  });
+
+  describe("given connectedComponentsCount", () => {
+    it("should return the count of the distinct components within a graph", () => {
+      const graph = {
+        3: [],
+        4: [6],
+        6: [4, 5, 7, 8],
+        8: [6],
+        7: [6],
+        5: [6],
+        1: [2],
+        2: [1],
+      };
+
+      expect(connectedComponentsCount(graph));
     });
   });
 });

@@ -37,8 +37,27 @@ function hasPath(graph, source, dest) {
   return false;
 }
 
+function hasPathBST(graph, source, dest) {
+  const queue = [source];
+
+  while (queue.length) {
+    const next = queue.shift();
+
+    if (next === dest) {
+      return true;
+    }
+
+    for (let neighbor of graph[next]) {
+      queue.push(neighbor);
+    }
+  }
+
+  return false;
+}
+
 module.exports = {
   depthFirst,
   breadthFirst,
   hasPath,
+  hasPathBST,
 };

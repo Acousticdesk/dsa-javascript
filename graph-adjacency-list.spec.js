@@ -1,4 +1,9 @@
-const { depthFirst, breadthFirst, hasPath } = require("./graph-adjacency-list");
+const {
+  depthFirst,
+  breadthFirst,
+  hasPath,
+  hasPathBST,
+} = require("./graph-adjacency-list");
 
 describe("given graph adjacency list", () => {
   let graph;
@@ -67,6 +72,24 @@ describe("given graph adjacency list", () => {
       };
 
       expect(hasPath(graph, "a", "f")).toBe(false);
+    });
+  });
+
+  describe("given hasPathBST", () => {
+    it("should return true if path exists", () => {
+      expect(hasPathBST(graph, "a", "c")).toBe(true);
+    });
+    it("should return false if path does not exist", () => {
+      const graph = {
+        a: ["b", "c"],
+        b: ["d"],
+        c: ["e"],
+        d: [],
+        e: [],
+        f: [],
+      };
+
+      expect(hasPathBST(graph, "a", "f")).toBe(false);
     });
   });
 });
